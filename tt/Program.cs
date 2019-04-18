@@ -7,17 +7,16 @@ namespace tt
 {
     class Program
     {
-        public static IRepository<Customer> t = new Repository<Customer>();
+        public readonly IRepository<Customer> _t;
+
+        public Program(IRepository<Customer> t)
+        {
+            _t = t;
+        }
         static void Main(string[] args)
         {
-            t.Add(new Customer()
-            {
-                Address = "aaa",
-                CustomerId = 1,
-                FirstName = "bb",
-                LastName = "cc"
-            });
             Console.WriteLine("Hello World!");
+            Console.Read();
 
         }
     }
