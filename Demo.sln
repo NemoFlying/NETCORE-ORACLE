@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityFrameworkCoreOracle",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoCore", "DemoCore\DemoCore.csproj", "{C9DD1EAD-6AD0-49F1-B985-001FC244DC88}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoWeb", "DemoWeb\DemoWeb.csproj", "{63FF0E5C-1682-49A7-AB47-8035C6F5FC57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoWeb", "DemoWeb\DemoWeb.csproj", "{F117E3AC-9E17-48EF-9848-25C4DF14E49E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +31,10 @@ Global
 		{C9DD1EAD-6AD0-49F1-B985-001FC244DC88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9DD1EAD-6AD0-49F1-B985-001FC244DC88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9DD1EAD-6AD0-49F1-B985-001FC244DC88}.Release|Any CPU.Build.0 = Release|Any CPU
-		{63FF0E5C-1682-49A7-AB47-8035C6F5FC57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{63FF0E5C-1682-49A7-AB47-8035C6F5FC57}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{63FF0E5C-1682-49A7-AB47-8035C6F5FC57}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{63FF0E5C-1682-49A7-AB47-8035C6F5FC57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F117E3AC-9E17-48EF-9848-25C4DF14E49E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F117E3AC-9E17-48EF-9848-25C4DF14E49E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F117E3AC-9E17-48EF-9848-25C4DF14E49E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F117E3AC-9E17-48EF-9848-25C4DF14E49E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
