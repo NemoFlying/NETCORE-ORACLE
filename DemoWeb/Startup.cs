@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-
+using Castle.MicroKernel.Registration;
 namespace DemoWeb
 {
     public class Startup
@@ -20,6 +20,7 @@ namespace DemoWeb
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            //var kk = Configuration["ConnectionStrings:Default"];
         }
 
         public IConfiguration Configuration { get; }
@@ -38,6 +39,11 @@ namespace DemoWeb
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             var ioContainer = new WindsorContainer();
+
+            //自定义配置
+            //Castle.Core.Configuration.IConfiguration castleConfiguration = new 
+            //ioContainer.Register(Component.For<Castle.Core.Configuration.IConfiguration>()
+            //    .Instance(Configuration).LifestyleSingleton());
             ioContainer.Install(FromAssembly.Named("EntityFrameworkCoreOracle"));
 
             return WindsorRegistrationHelper.CreateServiceProvider(ioContainer, services);

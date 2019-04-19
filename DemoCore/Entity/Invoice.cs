@@ -7,7 +7,7 @@ using System.Text;
 namespace DemoCore.Entity
 {
     [Table("INVOICE")]
-    public class Invoice
+    public class Invoice : Entity
     {
         [Key]
         [Column("ID")]

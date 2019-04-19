@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using DemoWeb.Models;
 using DemoCore.Entity;
 using DemoCore.IRepositories;
+using EntityFrameworkCoreOracle.Repositories;
+using EntityFrameworkCoreOracle;
+using Microsoft.Extensions.Configuration;
 
 namespace DemoWeb.Controllers
 {
@@ -14,15 +17,22 @@ namespace DemoWeb.Controllers
     {
 
         private readonly IRepository<Customer> _tt;
+        //private readonly IMyRepository _my;
 
-
-        public HomeController(IRepository<Customer> tt)
+        public HomeController(
+            IRepository<Customer> my,
+            IConfiguration configuration
+            )
         {
-            tt = _tt;
+            //_tt = tt;
+            _tt = my;
+            //var kk = new DemoDbContextFactory(configuration).CreateDbContext();
         }
              
         public IActionResult Index()
         {
+            var kk = _tt.GetAll(con => con.CustomerId == 1).ToList();
+            //var kk = _my.test();
             return View();
         }
 

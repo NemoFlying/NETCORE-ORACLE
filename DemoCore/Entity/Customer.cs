@@ -8,7 +8,7 @@ using System.Text;
 namespace DemoCore.Entity
 {
     [Table("CUSTOMER")]
-    public class Customer
+    public class Customer : Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

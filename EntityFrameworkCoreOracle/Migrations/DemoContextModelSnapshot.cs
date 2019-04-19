@@ -8,7 +8,7 @@ using Oracle.EntityFrameworkCore.Metadata;
 
 namespace EntityFrameworkCoreOracle.Migrations
 {
-    [DbContext(typeof(DemoContext))]
+    [DbContext(typeof(DemoDbContext))]
     partial class DemoContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

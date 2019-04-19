@@ -9,7 +9,7 @@ using Oracle.EntityFrameworkCore.Metadata;
 
 namespace EntityFrameworkCoreOracle.Migrations
 {
-    [DbContext(typeof(DemoContext))]
+    [DbContext(typeof(DemoDbContext))]
     [Migration("20190412092045_Initial")]
     partial class Initial
     {

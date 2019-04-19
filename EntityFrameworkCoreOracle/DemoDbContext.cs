@@ -6,8 +6,14 @@ using System.Text;
 
 namespace EntityFrameworkCoreOracle
 {
-    public class DemoContext:DbContext
+    public class DemoDbContext:DbContext
     {
+        private string _connectString;
+        public DemoDbContext(string connectString)
+        {
+            _connectString = connectString;
+        }
+
         public DbSet<Customer> Customer { get; set; }
         public DbSet<Invoice> Invoice { get; set; }
 
@@ -18,7 +24,7 @@ namespace EntityFrameworkCoreOracle
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseOracle(@"User Id=netcore;Password=netcore2019;Data Source=localhost:1521/ORCL;");
+            optionsBuilder.UseOracle(_connectString);
         }
 
 
