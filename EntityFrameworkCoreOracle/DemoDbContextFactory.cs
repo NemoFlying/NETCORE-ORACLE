@@ -8,17 +8,18 @@ namespace EntityFrameworkCoreOracle
 {
     public class DemoDbContextFactory
     {
-        [InReject]
-        public IConfiguration _configuration { get; set; }
+        //public IConfiguration _configuration { get; set; }
         //public DemoDbContextFactory(IConfiguration configuration)
         //{
         //    _configuration = configuration;
         //}
-        public DbContext CreateDbContext()
-        {
-            //从配置文件中获取数据库连接字符串
-            var connectString = _configuration["ConnectionStrings:Default"]; 
-            return new DemoDbContext(connectString);
-        }
+        //public DbContext CreateDbContext()
+        //{
+        //    //从配置文件中获取数据库连接字符串
+        //    var connectString = _configuration["ConnectionStrings:Default"];
+        //    var builder = new DbContextOptionsBuilder<DemoDbContext>();
+        //    builder.UseOracle(connectString);
+        //    return new DemoDbContext(builder.Options);
+        //}
     }
 }

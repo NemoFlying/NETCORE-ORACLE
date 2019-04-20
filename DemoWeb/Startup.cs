@@ -13,6 +13,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Castle.MicroKernel.Registration;
+using EntityFrameworkCoreOracle;
+using Microsoft.EntityFrameworkCore;
+using DemoCore.IRepositories;
+using EntityFrameworkCoreOracle.Repositories;
+using EntityFrameworkCoreOracle.DbInitial;
+
 namespace DemoWeb
 {
     public class Startup
@@ -35,15 +41,29 @@ namespace DemoWeb
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDbContext<DemoDbContext>(option=> {
+                option.UseOracle(Configuration["ConnectionStrings:Default"]);
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            services.AddTransient<IMyRepository, MyRepository>();
+
+            services.AddSingleton(Configuration);
+
+            //var kk = services.Reverse<DemoDbContext>();
             var ioContainer = new WindsorContainer();
 
             //自定义配置
-            //Castle.Core.Configuration.IConfiguration castleConfiguration = new 
-            //ioContainer.Register(Component.For<Castle.Core.Configuration.IConfiguration>()
+            //将配置文件装入IOC[windsor]中
+            //ioContainer.Register(Component.For<IConfiguration>()
             //    .Instance(Configuration).LifestyleSingleton());
+
+            //注入连接Dbcontext
+            ioContainer.Register(Component.For<DbContext>()
+                .Instance(services.BuildServiceProvider().GetService<DemoDbContext>()));
+
+            //载入 EntityFrameworkCoreOracle 模块
             ioContainer.Install(FromAssembly.Named("EntityFrameworkCoreOracle"));
 
             return WindsorRegistrationHelper.CreateServiceProvider(ioContainer, services);
@@ -73,6 +93,8 @@ namespace DemoWeb
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            DbInitailDemo.InitDb(app.ApplicationServices.GetService<DemoDbContext>());
         }
     }
 }

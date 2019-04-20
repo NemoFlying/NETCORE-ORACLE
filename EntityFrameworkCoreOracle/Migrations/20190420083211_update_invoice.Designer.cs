@@ -3,15 +3,17 @@ using System;
 using EntityFrameworkCoreOracle;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Oracle.EntityFrameworkCore.Metadata;
 
 namespace EntityFrameworkCoreOracle.Migrations
 {
     [DbContext(typeof(DemoDbContext))]
-    partial class DemoContextModelSnapshot : ModelSnapshot
+    [Migration("20190420083211_update_invoice")]
+    partial class update_invoice
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,6 +51,9 @@ namespace EntityFrameworkCoreOracle.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnName("DATE");
+
+                    b.Property<string>("Test")
+                        .HasColumnName("TEST");
 
                     b.HasKey("Id");
 

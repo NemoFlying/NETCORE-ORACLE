@@ -16,23 +16,23 @@ namespace DemoWeb.Controllers
     public class HomeController : Controller
     {
 
-        private readonly IRepository<Customer> _tt;
-        //private readonly IMyRepository _my;
+        //private readonly IRepository<Customer> _tt;
+        private readonly IMyRepository _my;
 
         public HomeController(
-            IRepository<Customer> my,
-            IConfiguration configuration
+            IMyRepository my,
+            IConfiguration con
             )
         {
             //_tt = tt;
-            _tt = my;
+            _my = my;
             //var kk = new DemoDbContextFactory(configuration).CreateDbContext();
         }
              
         public IActionResult Index()
         {
-            var kk = _tt.GetAll(con => con.CustomerId == 1).ToList();
-            //var kk = _my.test();
+            //var kk = _tt.GetAll(con => con.CustomerId == 1).ToList();
+            var kk = _my.test();
             return View();
         }
 

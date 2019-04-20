@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EntityFrameworkCoreOracle.Migrations
 {
-    public partial class Initial : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -38,7 +38,7 @@ namespace EntityFrameworkCoreOracle.Migrations
                 {
                     table.PrimaryKey("PK_INVOICE", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_INVOICE_01",
+                        name: "FK_INVOICE_CUSTOMER_CUSTOMERID",
                         column: x => x.CUSTOMERID,
                         principalSchema: "NETCORE",
                         principalTable: "CUSTOMER",
@@ -47,7 +47,7 @@ namespace EntityFrameworkCoreOracle.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_INVOICE_01",
+                name: "IX_INVOICE_CUSTOMERID",
                 schema: "NETCORE",
                 table: "INVOICE",
                 column: "CUSTOMERID");

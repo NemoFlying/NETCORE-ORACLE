@@ -37,7 +37,13 @@ namespace EntityFrameworkCoreOracle
             //var kk = Classes.FromAssembly(Assembly.GetExecutingAssembly()).BasedOn<IMyRepository>();
             //kk = container.Register(Component.For<ITest>()
             //    .ImplementedBy<Test>().LifestyleTransient());
-            container.Register(Component.For<DbContext>().Instance(new DemoDbContextFactory().CreateDbContext()).LifestyleSingleton());
+
+            //载入数据库模块
+            //container.Register(Component.For<DbContext>()
+            //    .Instance(new DemoDbContextFactory(container.Resolve<IConfiguration>()).CreateDbContext())
+            //    .LifestyleSingleton());
+            //注入基于 ITransientDependency 的模块
+
             kk = container.Register(Classes.FromAssembly(Assembly.GetExecutingAssembly())
                 .BasedOn<ITransientDependency>()
                 .WithService.DefaultInterfaces()

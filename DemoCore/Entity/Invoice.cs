@@ -17,6 +17,9 @@ namespace DemoCore.Entity
         [Column("DATE")]
         public DateTime Date { get; set; }
 
+        [Column("TEST")]
+        public string Test { get; set; }
+
         [Column("CUSTOMERID")]
         public int CustomerId { get; set; }
 

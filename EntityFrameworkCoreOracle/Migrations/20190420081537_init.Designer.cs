@@ -10,8 +10,8 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace EntityFrameworkCoreOracle.Migrations
 {
     [DbContext(typeof(DemoDbContext))]
-    [Migration("20190412092045_Initial")]
-    partial class Initial
+    [Migration("20190420081537_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

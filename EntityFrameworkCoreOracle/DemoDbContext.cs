@@ -8,12 +8,10 @@ namespace EntityFrameworkCoreOracle
 {
     public class DemoDbContext:DbContext
     {
-        private string _connectString;
-        public DemoDbContext(string connectString)
+        public DemoDbContext(DbContextOptions<DemoDbContext> options)
+            :base(options)
         {
-            _connectString = connectString;
         }
-
         public DbSet<Customer> Customer { get; set; }
         public DbSet<Invoice> Invoice { get; set; }
 
@@ -22,11 +20,5 @@ namespace EntityFrameworkCoreOracle
             modelBuilder.HasDefaultSchema("NETCORE");
             base.OnModelCreating(modelBuilder);
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseOracle(_connectString);
-        }
-
-
     }
 }
